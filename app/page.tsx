@@ -277,7 +277,7 @@ export default function Portfolio() {
 <Card className="overflow-hidden bg-white/10 border-white/20 backdrop-blur-sm shadow-lg">
                 <div className="aspect-video bg-muted">
                   <Image
-                    src="https://onlinephilippines.com.ph//wp-content/webpc-passthru.php?src=https://onlinephilippines.com.ph/wp-content/uploads/2022/10/238x53.png&nocache=1"
+                    src="/images/design-mode/darklogo.png"
                     alt="Online Philippines Corp"
                     width={400}
                     height={200}
