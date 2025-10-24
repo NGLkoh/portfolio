@@ -64,27 +64,27 @@ function ProjectSlideshowModal() {
       {/* Modal Overlay */}
       {isOpen && hasImages && (
         <div
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50 p-2"
           onClick={closeModal}
         >
           {/* Modal Content */}
           <div
-            className="relative w-full max-w-3xl bg-black rounded-lg overflow-hidden"
+            className="relative w-full h-[90vh] max-w-7xl bg-black rounded-xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full z-20 transition-colors"
+              className="absolute top-6 right-6 bg-white/20 hover:bg-white/40 text-white p-3 rounded-full z-20 transition-colors"
               aria-label="Close slideshow"
             >
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
 
             {/* Slideshow Container */}
-            <div className="relative aspect-video bg-gray-900 flex items-center justify-center group">
+            <div className="relative w-full h-full bg-gray-900 flex items-center justify-center group">
               <Image
                 src={projects[currentSlide].image || "/placeholder.svg"}
                 alt={projects[currentSlide].title}
@@ -94,35 +94,35 @@ function ProjectSlideshowModal() {
               />
 
               {/* Slide Counter */}
-              <div className="absolute top-4 left-4 bg-black/60 text-white px-4 py-2 rounded text-sm font-medium">
+              <div className="absolute top-6 left-6 bg-black/60 text-white px-5 py-3 rounded-lg text-base font-medium">
                 {currentSlide + 1} / {projects.length}
               </div>
 
               {/* Project Title */}
-              <div className="absolute bottom-4 left-4 bg-black/60 text-white px-4 py-2 rounded text-sm">
+              <div className="absolute bottom-6 left-6 bg-black/60 text-white px-5 py-3 rounded-lg text-lg font-semibold">
                 {projects[currentSlide].title}
               </div>
 
               {/* Previous Button */}
               <button
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
                 aria-label="Previous project"
               >
-                <ChevronLeft className="h-6 w-6" />
+                <ChevronLeft className="h-8 w-8" />
               </button>
 
               {/* Next Button */}
               <button
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-4 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
                 aria-label="Next project"
               >
-                <ChevronRight className="h-6 w-6" />
+                <ChevronRight className="h-8 w-8" />
               </button>
 
               {/* Dot Indicators */}
-              <div className="absolute bottom-4 right-4 flex gap-2">
+              <div className="absolute bottom-6 right-6 flex gap-3">
                 {projects.map((_, index) => (
                   <button
                     key={index}
