@@ -274,7 +274,41 @@ export default function Portfolio() {
                   </div>
                 </CardContent>
               </Card>
-
+<Card className="overflow-hidden bg-white/10 border-white/20 backdrop-blur-sm shadow-lg">
+                <div className="aspect-video bg-muted">
+                  <Image
+                    src="https://onlinephilippines.com.ph//wp-content/webpc-passthru.php?src=https://onlinephilippines.com.ph/wp-content/uploads/2022/10/238x53.png&nocache=1"
+                    alt="Online Philippines Corp"
+                    width={400}
+                    height={200}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-white">Online Philippines Corp.</CardTitle>
+                  <CardTitle className="text-sm text-gray-300">WP Developer Intern (3 months)</CardTitle>
+                  <CardDescription className="text-gray-400">
+                    Online Philippines Corp. is an integrated digital marketing agency in the Philippines committed to
+                    boosting your business by building your online presence.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="flex flex-wrap gap-1">
+                    {[
+                      "Theme development",
+                      "Website customization",
+                      "SEO optimization",
+                      "Website performance optimization",
+                      "Analytics and tracking",
+                      "Website migration",
+                    ].map((skill) => (
+                      <Badge key={skill} variant="outline" className="text-xs bg-white/5 text-white border-white/20">
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
               <Card className="overflow-hidden bg-white/10 border-white/20 backdrop-blur-sm shadow-lg">
                 <div className="aspect-video bg-muted flex items-center justify-center">
                   <div className="text-center">
