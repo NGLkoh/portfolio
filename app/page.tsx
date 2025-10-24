@@ -279,7 +279,7 @@ export default function Portfolio() {
                   <Image
                     src="/images/design-mode/darklogo.png"
                     alt="Online Philippines Corp"
-                    width={400}
+                    width={100}
                     height={200}
                     className="object-cover w-full h-full"
                   />
