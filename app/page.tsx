@@ -3,10 +3,103 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Linkedin, Mail, Download } from "lucide-react"
+import { Linkedin, Mail, Download, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+
+// Project Slideshow Component for Madison 88
+function ProjectSlideshow() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  // Array of project images - Add your project images here
+  const projects = [
+    {
+      title: "HRIS System",
+      image: "/placeholder.jpg",
+    },
+    {
+      title: "ATS Platform",
+      image: "/placeholder.jpg",
+    },
+    {
+      title: "Career Page",
+      image: "/placeholder.jpg",
+    },
+  ]
+
+  const hasImages = projects.length > 0 && projects.some((p) => p.image)
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % projects.length)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length)
+  }
+
+  return (
+    <div className="relative w-full h-full group">
+      {/* Slideshow Container */}
+      <div className="aspect-video bg-gradient-to-br from-gray-900 to-black flex items-center justify-center p-4 relative overflow-hidden">
+        {hasImages ? (
+          <>
+            <Image
+              src={projects[currentSlide].image || "/placeholder.svg"}
+              alt={projects[currentSlide].title}
+              width={300}
+              height={200}
+              className="object-contain w-full h-full transition-opacity duration-500"
+            />
+
+            {/* Slide Counter */}
+            <div className="absolute top-2 right-2 bg-black/60 text-white px-3 py-1 rounded text-sm">
+              {currentSlide + 1} / {projects.length}
+            </div>
+
+            {/* Previous Button */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+              aria-label="Previous project"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+
+            {/* Next Button */}
+            <button
+              onClick={nextSlide}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+              aria-label="Next project"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+
+            {/* Dot Indicators */}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+              {projects.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentSlide ? "bg-white w-6" : "bg-white/50 w-2"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className="text-center">
+            <h3 className="font-bold text-2xl text-white">Madison 88</h3>
+            <p className="text-sm text-gray-400 mt-2">Business Solutions Inc.</p>
+            <p className="text-xs text-gray-500 mt-4">No projects to display</p>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
 
 export default function Portfolio() {
   const [scrollY, setScrollY] = useState(0)
@@ -277,15 +370,7 @@ export default function Portfolio() {
 
               {/* Madison 88 Business Solutions Card */}
               <Card className="overflow-hidden bg-white/10 border-white/20 backdrop-blur-sm shadow-lg">
-                <div className="aspect-video bg-gradient-to-br from-gray-900 to-black flex items-center justify-center p-4">
-                  <Image
-                    src="/images/design-mode/darklogo.png"
-                    alt="Madison 88 Business Solutions Inc."
-                    width={300}
-                    height={100}
-                    className="object-contain w-full h-full"
-                  />
-                </div>
+                <ProjectSlideshow />
                 <CardHeader>
                   <CardTitle className="text-white">Madison 88 Business Solutions Inc.</CardTitle>
                   <CardTitle className="text-sm text-gray-300">FullStack Developer Intern</CardTitle>
