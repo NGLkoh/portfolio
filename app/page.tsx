@@ -1,6 +1,5 @@
 "use client"
 
-import { Analytics } from "@vercel/analytics/next"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -239,14 +238,15 @@ export default function Portfolio() {
               <p className="text-gray-300">Companies where I applied and developed my skills.</p>
             </div>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {/* Online Philippines Corp Card */}
               <Card className="overflow-hidden bg-white/10 border-white/20 backdrop-blur-sm shadow-lg">
-                <div className="aspect-video bg-muted">
+                <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center p-4">
                   <Image
                     src="https://onlinephilippines.com.ph//wp-content/webpc-passthru.php?src=https://onlinephilippines.com.ph/wp-content/uploads/2022/10/238x53.png&nocache=1"
                     alt="Online Philippines Corp"
-                    width={400}
-                    height={200}
-                    className="object-cover w-full h-full"
+                    width={300}
+                    height={100}
+                    className="object-contain w-full h-full"
                   />
                 </div>
                 <CardHeader>
@@ -274,32 +274,36 @@ export default function Portfolio() {
                   </div>
                 </CardContent>
               </Card>
-<Card className="overflow-hidden bg-white/10 border-white/20 backdrop-blur-sm shadow-lg">
-                <div className="aspect-video bg-muted">
+
+              {/* Madison 88 Business Solutions Card */}
+              <Card className="overflow-hidden bg-white/10 border-white/20 backdrop-blur-sm shadow-lg">
+                <div className="aspect-video bg-gradient-to-br from-gray-900 to-black flex items-center justify-center p-4">
                   <Image
                     src="/images/design-mode/darklogo.png"
-                    alt="Online Philippines Corp"
-                    width={100}
-                    height={200}
-                    className="object-cover w-full h-full"
+                    alt="Madison 88 Business Solutions Inc."
+                    width={300}
+                    height={100}
+                    className="object-contain w-full h-full"
                   />
                 </div>
                 <CardHeader>
                   <CardTitle className="text-white">Madison 88 Business Solutions Inc.</CardTitle>
                   <CardTitle className="text-sm text-gray-300">FullStack Developer Intern</CardTitle>
                   <CardDescription className="text-gray-400">
-                    Developed HRIS System & ATS - Employee and Employment management system that have an integrations with Microsoft GRAPH for MS Teams scheduling and setting up meetings. A Dinamic Website that has dynamic pages including career page.
+                    Developed HRIS System & ATS - Employee and Employment management system that have integrations with
+                    Microsoft GRAPH for MS Teams scheduling and setting up meetings. A Dynamic Website that has dynamic
+                    pages including career page.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex flex-wrap gap-1">
                     {[
-                      "Theme development",
-                      "Website customization",
-                      "SEO optimization",
-                      "Website performance optimization",
-                      "Analytics and tracking",
-                      "Website migration",
+                      "HRIS System Development",
+                      "ATS Development",
+                      "Microsoft Graph Integration",
+                      "Dynamic Website",
+                      "Career Page Development",
+                      "Team Collaboration",
                     ].map((skill) => (
                       <Badge key={skill} variant="outline" className="text-xs bg-white/5 text-white border-white/20">
                         {skill}
@@ -308,18 +312,21 @@ export default function Portfolio() {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Digital Creatives PAJ Card */}
               <Card className="overflow-hidden bg-white/10 border-white/20 backdrop-blur-sm shadow-lg">
-                <div className="aspect-video bg-muted flex items-center justify-center">
+                <div className="aspect-video bg-gradient-to-br from-purple-200 to-blue-200 flex items-center justify-center p-4">
                   <div className="text-center">
-                    <h3 className="font-semibold text-lg text-black">Digital Creatives PAJ</h3>
-                    <p className="text-sm text-black-300">Web Design & Branding</p>
+                    <h3 className="font-bold text-2xl text-black">Digital Creatives</h3>
+                    <p className="text-sm text-gray-700">PAJ</p>
                   </div>
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-white">Digital Creatives PAJ Web Design and Branding Solutions</CardTitle>
-                  <CardTitle className="text-sm text-gray-300">WP Developer (1 year 3 mo)</CardTitle>
+                  <CardTitle className="text-white">Digital Creatives PAJ</CardTitle>
+                  <CardTitle className="text-sm text-gray-300">WP Developer (1 year 3 months)</CardTitle>
                   <CardDescription className="text-gray-400">
-                    A digital marketing company based in the Philippines.
+                    A digital marketing company based in the Philippines specializing in web design and branding
+                    solutions.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -330,6 +337,7 @@ export default function Portfolio() {
                       "Plugin development",
                       "Website customization",
                       "Domain management",
+                      "WordPress Optimization",
                     ].map((skill) => (
                       <Badge key={skill} variant="outline" className="text-xs bg-white/5 text-white border-white/20">
                         {skill}
@@ -339,21 +347,23 @@ export default function Portfolio() {
                 </CardContent>
               </Card>
 
+              {/* Markadong Pinoy Thesis Card */}
               <Card className="overflow-hidden bg-white/10 border-white/20 backdrop-blur-sm shadow-lg">
-                <div className="aspect-video bg-muted">
+                <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center p-4">
                   <Image
                     src="https://www.markadongpinoy.com/cape-logo.png"
                     alt="Markadong Pinoy"
-                    width={400}
-                    height={200}
-                    className="object-cover w-full h-full"
+                    width={300}
+                    height={100}
+                    className="object-contain w-full h-full"
                   />
                 </div>
                 <CardHeader>
                   <CardTitle className="text-white">Thesis: Markadong Pinoy</CardTitle>
                   <CardTitle className="text-sm text-gray-300">Front-end & Backend Developer</CardTitle>
                   <CardDescription className="text-gray-400">
-                    A CMS platform that serves local MSMEs in Imus Cavite.
+                    A CMS platform that serves local MSMEs in Imus Cavite providing e-commerce and business management
+                    solutions.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
