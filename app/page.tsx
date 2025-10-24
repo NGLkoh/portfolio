@@ -285,11 +285,10 @@ export default function Portfolio() {
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-white">Online Philippines Corp.</CardTitle>
-                  <CardTitle className="text-sm text-gray-300">WP Developer Intern (3 months)</CardTitle>
+                  <CardTitle className="text-white">Madison 88 Business Solutions Inc.</CardTitle>
+                  <CardTitle className="text-sm text-gray-300">FullStack Developer Intern</CardTitle>
                   <CardDescription className="text-gray-400">
-                    Online Philippines Corp. is an integrated digital marketing agency in the Philippines committed to
-                    boosting your business by building your online presence.
+                    Developed HRIS System & ATS - Employee and Employment management system that have an integrations with Microsoft GRAPH for MS Teams scheduling and setting up meetings. A Dinamic Website that has dynamic pages including career page.
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
