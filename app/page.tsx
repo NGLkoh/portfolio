@@ -8,8 +8,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 
-// Project Slideshow Component for Madison 88
-function ProjectSlideshow() {
+// Project Slideshow Modal Component for Madison 88
+function ProjectSlideshowModal() {
+  const [isOpen, setIsOpen] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
 
   // Array of project images - Add your project images here
@@ -38,66 +39,106 @@ function ProjectSlideshow() {
     setCurrentSlide((prev) => (prev - 1 + projects.length) % projects.length)
   }
 
+  const closeModal = () => {
+    setIsOpen(false)
+    setCurrentSlide(0)
+  }
+
   return (
-    <div className="relative w-full h-full group">
-      {/* Slideshow Container */}
-      <div className="aspect-video bg-gradient-to-br from-gray-900 to-black flex items-center justify-center p-4 relative overflow-hidden">
-        {hasImages ? (
-          <>
-            <Image
-              src={projects[currentSlide].image || "/placeholder.svg"}
-              alt={projects[currentSlide].title}
-              width={300}
-              height={200}
-              className="object-contain w-full h-full transition-opacity duration-500"
-            />
-
-            {/* Slide Counter */}
-            <div className="absolute top-2 right-2 bg-black/60 text-white px-3 py-1 rounded text-sm">
-              {currentSlide + 1} / {projects.length}
-            </div>
-
-            {/* Previous Button */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
-              aria-label="Previous project"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-
-            {/* Next Button */}
-            <button
-              onClick={nextSlide}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
-              aria-label="Next project"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-
-            {/* Dot Indicators */}
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
-              {projects.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    index === currentSlide ? "bg-white w-6" : "bg-white/50 w-2"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-          </>
-        ) : (
-          <div className="text-center">
-            <h3 className="font-bold text-2xl text-white">Madison 88</h3>
-            <p className="text-sm text-gray-400 mt-2">Business Solutions Inc.</p>
-            <p className="text-xs text-gray-500 mt-4">No projects to display</p>
-          </div>
-        )}
+    <>
+      {/* Card Click Trigger */}
+      <div
+        onClick={() => hasImages && setIsOpen(true)}
+        className={`aspect-video bg-gradient-to-br from-gray-900 to-black flex items-center justify-center p-4 cursor-${
+          hasImages ? "pointer hover:ring-2 hover:ring-white/30" : "default"
+        } transition-all`}
+      >
+        <div className="text-center">
+          <h3 className="font-bold text-2xl text-white">Madison 88</h3>
+          <p className="text-sm text-gray-400 mt-2">Business Solutions Inc.</p>
+          {hasImages && <p className="text-xs text-gray-500 mt-4">Click to view projects</p>}
+          {!hasImages && <p className="text-xs text-gray-500 mt-4">No projects to display</p>}
+        </div>
       </div>
-    </div>
+
+      {/* Modal Overlay */}
+      {isOpen && hasImages && (
+        <div
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          onClick={closeModal}
+        >
+          {/* Modal Content */}
+          <div
+            className="relative w-full max-w-3xl bg-black rounded-lg overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full z-20 transition-colors"
+              aria-label="Close slideshow"
+            >
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Slideshow Container */}
+            <div className="relative aspect-video bg-gray-900 flex items-center justify-center group">
+              <Image
+                src={projects[currentSlide].image || "/placeholder.svg"}
+                alt={projects[currentSlide].title}
+                width={800}
+                height={600}
+                className="object-contain w-full h-full transition-opacity duration-500"
+              />
+
+              {/* Slide Counter */}
+              <div className="absolute top-4 left-4 bg-black/60 text-white px-4 py-2 rounded text-sm font-medium">
+                {currentSlide + 1} / {projects.length}
+              </div>
+
+              {/* Project Title */}
+              <div className="absolute bottom-4 left-4 bg-black/60 text-white px-4 py-2 rounded text-sm">
+                {projects[currentSlide].title}
+              </div>
+
+              {/* Previous Button */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                aria-label="Previous project"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+
+              {/* Next Button */}
+              <button
+                onClick={nextSlide}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-black p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
+                aria-label="Next project"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+
+              {/* Dot Indicators */}
+              <div className="absolute bottom-4 right-4 flex gap-2">
+                {projects.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      index === currentSlide ? "bg-white w-6" : "bg-white/50 w-2"
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 
@@ -370,7 +411,7 @@ export default function Portfolio() {
 
               {/* Madison 88 Business Solutions Card */}
               <Card className="overflow-hidden bg-white/10 border-white/20 backdrop-blur-sm shadow-lg">
-                <ProjectSlideshow />
+                <ProjectSlideshowModal />
                 <CardHeader>
                   <CardTitle className="text-white">Madison 88 Business Solutions Inc.</CardTitle>
                   <CardTitle className="text-sm text-gray-300">FullStack Developer Intern</CardTitle>
