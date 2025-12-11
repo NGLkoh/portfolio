@@ -420,7 +420,7 @@ export default function Portfolio() {
                 <ProjectSlideshowModal />
                 <CardHeader>
                   <CardTitle className="text-white">Madison 88 Business Solutions Inc.</CardTitle>
-                  <CardTitle className="text-sm text-gray-300">FullStack Developer Intern</CardTitle>
+                  <CardTitle className="text-sm text-gray-300">FullStack Developer Intern (500 Hours)</CardTitle>
                   <CardDescription className="text-gray-400">
                     Developed HRIS System & ATS - Employee and Employment management system that have integrations with
                     Microsoft GRAPH for MS Teams scheduling and setting up meetings. A Dynamic Website that has dynamic
