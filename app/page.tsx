@@ -380,13 +380,13 @@ export default function Portfolio() {
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {/* Online Philippines Corp Card */}
               <Card className="overflow-hidden bg-white/10 border-white/20 backdrop-blur-sm shadow-lg">
-                <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center p-4">
                   <Image
                     src="https://onlinephilippines.com.ph//wp-content/webpc-passthru.php?src=https://onlinephilippines.com.ph/wp-content/uploads/2022/10/238x53.png&nocache=1"
                     alt="Online Philippines Corp"
                     width={300}
                     height={100}
-                    className="object-contain"
+                    className="object-contain w-full h-full"
                   />
                 </div>
                 <CardHeader>
@@ -430,12 +430,16 @@ export default function Portfolio() {
                 <CardContent className="space-y-4">
                   <div className="flex flex-wrap gap-1">
                     {[
-                      "HRIS System Development",
-                      "ATS Development",
-                      "Microsoft Graph Integration",
-                      "Dynamic Website",
-                      "Career Page Development",
-                      "Team Collaboration",
+                      "Web Development",
+                      "React.js",
+                      "Next.js",
+                      "Typescript",
+                      "Node.js",
+                      "Supabase",
+                      "Brevo",
+                      "Microsoft Graph",
+                      "API De velopment",
+                      "Vercel",
                     ].map((skill) => (
                       <Badge key={skill} variant="outline" className="text-xs bg-white/5 text-white border-white/20">
                         {skill}
@@ -447,7 +451,7 @@ export default function Portfolio() {
 
               {/* Digital Creatives PAJ Card */}
               <Card className="overflow-hidden bg-white/10 border-white/20 backdrop-blur-sm shadow-lg">
-                <div className="aspect-video bg-gradient-to-br from-purple-200 to-blue-200 flex items-center justify-center">
+                <div className="aspect-video bg-gradient-to-br from-purple-200 to-blue-200 flex items-center justify-center p-4">
                   <div className="text-center">
                     <h3 className="font-bold text-2xl text-black">Digital Creatives</h3>
                     <p className="text-sm text-gray-700">PAJ</p>
@@ -481,13 +485,13 @@ export default function Portfolio() {
 
               {/* Markadong Pinoy Thesis Card */}
               <Card className="overflow-hidden bg-white/10 border-white/20 backdrop-blur-sm shadow-lg">
-                <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center p-4">
                   <Image
                     src="https://www.markadongpinoy.com/cape-logo.png"
                     alt="Markadong Pinoy"
                     width={300}
                     height={100}
-                    className="object-contain"
+                    className="object-contain w-full h-full"
                   />
                 </div>
                 <CardHeader>
