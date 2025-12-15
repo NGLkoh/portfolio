@@ -216,7 +216,7 @@ export default function Portfolio() {
               </div>
               <div className="space-y-4">
                 <p className="transition-colors duration-500" style={{ color: scrollY > 600 ? "#e5e7eb" : "#1f2937" }}>
-                  I'm an aspiring WordPress developer currently in my final year of BSIT at Lyceum of the Philippines
+                  I'm a BSIT graduate at Lyceum of the Philippines
                   University – Cavite. I enjoy building responsive and user-friendly websites from scratch and have
                   hands-on experience in theme and plugin development, SEO optimization, and website customization.
                 </p>
