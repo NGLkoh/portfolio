@@ -52,7 +52,7 @@ function ProjectSlideshowModal() {
         className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center p-4 cursor-pointer hover:ring-2 hover:ring-white/30 transition-all"
       >
         <Image
-          src="https://onlinephilippines.com.ph//wp-content/webpc-passthru.php?src=https://onlinephilippines.com.ph/wp-content/uploads/2022/10/238x53.png&nocache=1"
+          src="darklogo.png"
           alt="Madison 88 Business Solutions Inc."
           width={300}
           height={100}
@@ -487,10 +487,10 @@ export default function Portfolio() {
               <Card className="overflow-hidden bg-white/10 border-white/20 backdrop-blur-sm shadow-lg">
                 <div className="aspect-video bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center p-4">
                   <Image
-                    src="https://www.markadongpinoy.com/cape-logo.png"
+                    src="smeco.jpg"
                     alt="Markadong Pinoy"
-                    width={300}
-                    height={100}
+                    width={200}
+                    height={80}
                     className="object-contain w-full h-full"
                   />
                 </div>
