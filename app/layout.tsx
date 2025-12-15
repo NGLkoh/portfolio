@@ -8,7 +8,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'Nigel Koh | Portfolio',
-  description: 'Created with v0',
+  description: ' The personal portfolio website of Nigel Koh, showcasing projects and skills in web development and design.',
   generator: 'v0.app',
 }
 
